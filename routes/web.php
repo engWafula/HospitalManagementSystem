@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +16,8 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/home',[HomeController::class,'redirect']);
 Route::get('/',[HomeController::class,'index']);
+Route::post('/upload_doctor',[AdminController::class,'upload']);
+Route::get('/add_doctor',[AdminController::class,'addview']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
