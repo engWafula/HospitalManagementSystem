@@ -16,7 +16,10 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/home',[HomeController::class,'redirect']);
 Route::get('/',[HomeController::class,'index']);
+Route::get('/myappointment',[HomeController::class,'myappointment']);
 Route::post('/upload_doctor',[AdminController::class,'upload']);
+Route::post('/makeAppointment',[HomeController::class,'appointment']);
+Route::get('/cancel_appointment/{id}',[HomeController::class,'cancel']);
 Route::get('/add_doctor',[AdminController::class,'addview']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
