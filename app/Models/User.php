@@ -9,8 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-
-class User extends Authenticatable
+//here to  enable  email  verification  of  the user  we  implement  MustVerifyEmail interface
+class User extends Authenticatable implements  MustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;

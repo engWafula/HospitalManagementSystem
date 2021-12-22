@@ -61,9 +61,11 @@ class HomeController extends Controller
      
         if(Auth::id()){
             //this code here will get  the specific appointments made by  a  user  who  is  logged in
+            if(Auth::user()->usertype==0){
             $userId=Auth::user()->id;
             $appointment =appointment::where('user_id',$userId)->get();
             return view("user.myAppointments",compact("appointment"));   
+            }
         }
        else{
            return redirect()->back();
