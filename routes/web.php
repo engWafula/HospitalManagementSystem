@@ -27,6 +27,10 @@ Route::get('/canceled/{id}',[AdminController::class,'cancel_appointment']);
 Route::get('/Delete/{id}',[AdminController::class,'delete']);
 Route::get('/update/{id}',[AdminController::class,'update']);
 Route::post('/editDoctor/{id}',[AdminController::class,'editDoctor']);
+Route::get('apiwithoutkey', [HomeController::class, 'apiWithoutKey'])->name('apiWithoutKey');
+Route::get('apiwithkey', [HomeController::class, 'apiWithKey'])->name('apiWithKey');
+
+
 Route::get('/send_Mail/{id}',[AdminController::class,'send_mail']);
 Route::get('/add_doctor',[AdminController::class,'addview']);
 Route::get('/doctors',[AdminController::class,'doctors']);

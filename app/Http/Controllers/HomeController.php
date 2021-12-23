@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
-
+use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Doctors;
@@ -77,4 +77,14 @@ class HomeController extends Controller
         $data->delete();
         return redirect()->back();
     }
+
+    public function apiWithKey()
+    {
+        $response = Http::get('https://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=7004879ac1304fdcb6721b097f9e7171');
+        $body = $response->body();
+        return view('user.news',compact('body'));
+    }
+
+
+
 }
