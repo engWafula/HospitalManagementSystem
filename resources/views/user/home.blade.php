@@ -71,7 +71,7 @@
               <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
+              <a class="nav-link">About Us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="doctors.html">Doctors</a>
@@ -87,10 +87,14 @@
             @auth
             <li class="nav-item">
               <a class="nav-link" href="{{url("myappointment")}}" style='background-color:greenyellow; color:white;'>myAppointments</a>
+              
             </li>
-            <x-app-layout>
-           </x-app-layout> 
- 
+            <li class="nav-item">
+        
+           </li>
+
+           <x-app-layout>
+          </x-app-layout> 
               @else
             <li class="nav-item">
               <a class="btn btn-primary ml-lg-3" href="{{route('login')}}">Login</a>
@@ -177,7 +181,7 @@
 
   @include('user.doctor')
 
- @include('user.news')
+ {{-- @include('user.news')  --}}
 
   @include('user.makeAppointment')
 

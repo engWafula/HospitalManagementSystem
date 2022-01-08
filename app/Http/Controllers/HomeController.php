@@ -81,7 +81,9 @@ class HomeController extends Controller
     public function apiWithKey()
     {
         $response = Http::get('https://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=7004879ac1304fdcb6721b097f9e7171');
-        $body = $response->body();
+        $body = $response->json();
+        // die("am here");
+        //dd($body);
         return view('user.news',compact('body'));
     }
 

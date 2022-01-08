@@ -19,33 +19,50 @@
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <div align="center" style="padding-top:100px">
-                <table >
-                    <tr style="background-color:black;" align="center">
-                        <th style="padding:20px; font-size:20px; color:white;">Doctor Name</th>
-                        <th style="padding:20px; font-size:20px; color:white;">Phone</th>
-                        <th style="padding:20px; font-size:20px; color:white;">room number</th>
-                        <th style="padding:20px; font-size:20px; color:white;" >Speciality</th>
-                        <th style="padding:20px; font-size:20px; color:white;" >Picture</th>
-                        <th style="padding:20px; font-size:20px; color:white;" >Update Data</th>
-                        <th style="padding:20px; font-size:20px; color:white;" >Delete Data</th>
-                    </tr>
-                    @foreach ($doctor as$doctors )
-                    <tr style="background-color:black;" align="center">
-                      
-                        <td style="padding:20px;  color:white;">{{$doctors->name}}</td>
-                        <td style="padding:20px; color:white;">{{$doctors->phone}}</td>
-                        <td style="padding:20px; color:white;">{{$doctors->room}}</td>
-                        <td style="padding:20px;  color:white;">{{$doctors->speciality}}</td>
-                        <td style="padding:20px;  color:white;"> <img  src="doctor_image/{{$doctors->image}}" alt="" width="100px" height="100px"></td>
-                       <td><a class="btn btn-success" onclick="return confirm('Are you sure you want to approve this')" href="{{url('update',$doctors->id)}}">Update</a></td>
-                       
-                        <td><a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this')" href="{{url('Delete',$doctors->id)}}">Delete</a></td>
+
+                   <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Doctors</h4>
                  
-                     
-                    </tr>
-                    @endforeach
-                </table>
-            </div>
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th> Doctor Picture</th>
+                            <th> Doctor Name</th>
+                            <th> Phone</th>
+                            <th> Speciality</th>
+                            <th> Room</th>
+                            <th> Update Data</th>
+                            <th> Delete Data</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                         @foreach ($doctor as$doctors )
+                          <tr>
+                            <td class="py-5">
+                             <img height="100px"  src="doctor_image/{{$doctors->image}}" alt="" width="100px" height="100px">
+                            </td>
+                            <td>{{$doctors->name}}</td>
+                            <td>{{$doctors->phone}}</td>
+                            <td>{{$doctors->speciality}}</td>
+                            <td>{{$doctors->room}}</td>
+                             
+                             <td><a class="btn btn-success" onclick="return confirm('Are you sure you want to approve this')" href="{{url('update',$doctors->id)}}">Update</a></td>
+                               <td><a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this')" href="{{url('Delete',$doctors->id)}}">Delete</a></td>
+                          </tr>
+                          <tr>
+                            @endforeach
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+               </div>
+            
         </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
